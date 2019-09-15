@@ -12,7 +12,7 @@ struct ModalView: View {
     // 1. Add the environment variable
     @Environment(\.presentationMode) var presentationMode
 
-    @State private var note: String
+    @State private var note: String == ""
     
     var body: some View {
         // 2. Embed Text in a VStack
