@@ -8,38 +8,18 @@
 
 import SwiftUI
 
-struct ModalView: View {
-    // 1. Add the environment variable
-    @Environment(\.presentationMode) var presentationMode
-
-    @State private var note: String == ""
-    
-    var body: some View {
-        // 2. Embed Text in a VStack
-        VStack {
-            // 3. Add a button with the following action
-            Button(action: {
-                print("dismisses form")
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("Dismiss")
-            }.padding(.bottom, 50)
-            Text("This is a modal")
-        }
-    }
-}
-
 struct NotesView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var note: String
+    @State private var note: String = ""
     
     var body: some View {
 
         VStack {
             
             Text("Notes...").font(.largeTitle)
+            
             TextField("Enter notes", text: $note).textFieldStyle(RoundedBorderTextFieldStyle())
             
             Button(action: {
@@ -78,7 +58,7 @@ struct MainView: View {
             
         }.sheet(isPresented: $showNotesView) {
             
-            ModalView()
+            NotesView()
             
         }
 
