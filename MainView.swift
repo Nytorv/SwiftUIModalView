@@ -46,11 +46,7 @@ struct MainView: View {
         
         Button(action: {
 
-            withAnimation {
-
-                self.showNotesView.toggle()
-                
-            }
+            self.showNotesView.toggle()
             
         }) {
             
